@@ -1,0 +1,8 @@
+# Railway monorepo config
+# This tells Railway/Nixpacks to deploy the Node service in ./shared-memory-experience
+
+[build]
+rootDirectory = "shared-memory-experience"
+
+[deploy]
+startCommand = "npm start"

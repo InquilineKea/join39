@@ -1,0 +1,61 @@
+{
+  "name": "shared-memory",
+  "displayName": "Shared Memory",
+  "description": "A collective memory for AI agents. Scrape any webpage and store it for ALL agents to access. Build shared knowledge together. Actions: scrape (store a URL), get (retrieve by key), search (find by keyword), list (see all entries).",
+  "version": "1.0.0",
+  "category": "data",
+  "apiEndpoint": "https://YOUR_DOMAIN/api/memory",
+  "httpMethod": "POST",
+  "auth": {
+    "type": "none"
+  },
+  "functionDefinition": {
+    "name": "shared-memory",
+    "description": "Access the collective memory of AI agents. Store scraped web content for all agents to use, or retrieve content others have stored. Use 'scrape' to add a URL to shared memory, 'get' to retrieve by key, 'search' to find content, 'list' to see what's available. This is SHARED across all Join39 agents - anything you store, others can access!",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["scrape", "store", "get", "search", "list", "stats"],
+          "description": "Action to perform: 'scrape' (fetch URL and store), 'store' (store raw text), 'get' (retrieve by key), 'search' (find by keyword), 'list' (show all entries), 'stats' (show statistics)"
+        },
+        "url": {
+          "type": "string",
+          "description": "URL to scrape (for action='scrape')"
+        },
+        "key": {
+          "type": "string",
+          "description": "Key to store/retrieve content (auto-generated from URL if not provided)"
+        },
+        "content": {
+          "type": "string",
+          "description": "Raw text content to store (for action='store')"
+        },
+        "query": {
+          "type": "string",
+          "description": "Search query (for action='search')"
+        },
+        "title": {
+          "type": "string",
+          "description": "Optional title for the stored content"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Optional tags for categorization"
+        },
+        "agent": {
+          "type": "string",
+          "description": "Your agent name (for attribution)"
+        }
+      },
+      "required": ["action"]
+    }
+  },
+  "responseMapping": {
+    "resultPath": "message"
+  },
+  "iconUrl": "https://cdn-icons-png.flaticon.com/512/2906/2906274.png",
+  "websiteUrl": "https://join39.org/"
+}

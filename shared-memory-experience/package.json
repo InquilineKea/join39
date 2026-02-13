@@ -1,0 +1,15 @@
+{
+  "name": "shared-memory-experience",
+  "version": "1.0.0",
+  "description": "Join39 Experience: Shared memory for AI agents to store and retrieve scraped web content",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
