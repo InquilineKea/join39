@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: shared-memory
+    env: node
+    plan: free
+    rootDir: shared-memory-experience
+    buildCommand: npm ci
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      # Optional: persist data by mounting a Render Disk and set STORAGE_DIR to its mount path
+      # - key: STORAGE_DIR
+      #   value: /var/data
